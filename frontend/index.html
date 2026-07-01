@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Home IoT MQTT</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">IoT Dashboard</p>
+          <h1>Nha thong minh dieu khien bang MQTT</h1>
+          <p class="subtitle">
+            Giam sat nhiet do, do am, khi gas va dieu khien thiet bi qua MQTT WebSocket theo thoi gian thuc.
+          </p>
+        </div>
+        <div class="connection-card">
+          <span id="statusDot" class="dot"></span>
+          <div>
+            <strong id="connectionText">Dang ket noi MQTT...</strong>
+            <small id="brokerText">ws://localhost:3000/mqtt</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid two-cols">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Cam bien</p>
+              <h2>Du lieu moi nhat</h2>
+            </div>
+            <span id="updatedAt" class="time-pill">--:--:--</span>
+          </div>
+          <div class="sensor-grid">
+            <div class="sensor-card">
+              <span>Nhiet do</span>
+              <strong id="temperature">--</strong>
+              <small>do C</small>
+            </div>
+            <div class="sensor-card">
+              <span>Do am</span>
+              <strong id="humidity">--</strong>
+              <small>%</small>
+            </div>
+            <div class="sensor-card">
+              <span>Khi gas</span>
+              <strong id="gas">--</strong>
+              <small>ppm</small>
+            </div>
+            <div class="sensor-card">
+              <span>Anh sang</span>
+              <strong id="light">--</strong>
+              <small>%</small>
+            </div>
+            <div class="sensor-card wide">
+              <span>Chuyen dong</span>
+              <strong id="motion">--</strong>
+              <small>PIR sensor</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel alert-panel">
+          <p class="eyebrow">Canh bao</p>
+          <h2 id="alertTitle">He thong binh thuong</h2>
+          <p id="alertMessage">Chua co canh bao moi tu MQTT.</p>
+          <div class="topic-box">
+            <span>Topic nhan canh bao</span>
+            <code>home/alert</code>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Dieu khien</p>
+            <h2>Thiet bi trong nha</h2>
+          </div>
+          <button id="refreshBtn" class="ghost-btn">Nap lai trang thai</button>
+        </div>
+        <div id="deviceGrid" class="device-grid"></div>
+      </section>
+
+      <section class="grid two-cols">
+        <article class="panel">
+          <p class="eyebrow">MQTT topics</p>
+          <h2>Kenh giao tiep</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td>Telemetry</td>
+                <td><code>home/sensor/telemetry</code></td>
+              </tr>
+              <tr>
+                <td>Gui lenh</td>
+                <td><code>home/device/{id}/set</code></td>
+              </tr>
+              <tr>
+                <td>Trang thai</td>
+                <td><code>home/device/{id}/state</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">Nhat ky</p>
+          <h2>Su kien MQTT</h2>
+          <ul id="eventLog" class="event-log"></ul>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
