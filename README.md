@@ -71,7 +71,7 @@ ws://localhost:3000/mqtt
 - `frontend/app.js`: kết nối Web MQTT, subscribe các topic, cập nhật giao diện và publish lệnh điều khiển.
 - `frontend/index.html` và `frontend/style.css`: giao diện dashboard nhà thông minh.
 
-## Cách demo với giáo viên
+## Cách demo 
 
 1. Chạy `npm start`.
 2. Mở `http://localhost:3000`.
